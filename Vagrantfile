@@ -33,6 +33,7 @@ Vagrant.configure('2') do |config|
 
     docker pull ghost
     source /vagrant/docker_utils.sh
+    removeContainer #{ENV['GHOST_BLOG_NAME']}
     addGhostBlog #{ENV['GHOST_BLOG_NAME']} $GHOST_BLOG_HOST
   EOB
 end
