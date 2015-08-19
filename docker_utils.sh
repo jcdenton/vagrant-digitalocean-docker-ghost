@@ -18,6 +18,6 @@ function addGhostBlog() {
   local host=$2
   if [[ -z "$name" || -z "$host" ]]; then return 1; fi
 
-  docker run -d -v ~/ghost-data/"$name"/:/ghost-override -e VIRTUAL_HOST="$host" --name "$name" ghost
+  docker run -d -v ~/ghost-data/"$name"/:/var/lib/ghost -e VIRTUAL_HOST="$host" --name "$name" ghost
   return 0
 }
